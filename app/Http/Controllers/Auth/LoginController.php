@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
-use App\Classes\ActivationService;
+use App\Services\ActivationService;
 
 class LoginController extends Controller
 {
@@ -56,7 +56,8 @@ class LoginController extends Controller
         if (!$user->active) {
             ActivationService::sendActivationMail($user);
             auth()->logout();
-            return redirect()->route('login')->with('warning', 'Bạn cần xác thực tài khoản, chúng tôi đã gửi mã xác thực vào email của bạn, hãy kiểm tra và làm theo hướng dẫn.');
+            return redirect()->route('login')->with('warning', 'Bạn cần xác thực tài khoản,
+            chúng tôi đã gửi mã xác thực vào email của bạn, hãy kiểm tra và làm theo hướng dẫn.');
         }
         return redirect()->intended($this->redirectPath());
     }

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Purse extends Model
 {
-	protected $fillable = [
+    protected $fillable = [
         'name', 'money'  
     ];
     public static function updatePurse($data, $id)
@@ -20,14 +20,14 @@ class Purse extends Model
     }
 
     public static function store($data)
-    {	
-    	$new = '0';
-    	$purse = new Purse;
-    	$purse->name = $data['name'];
-    	$purse->money = $new;
-    	$purse->user_id = Auth::id();
+    {
+        $new = '100000';
+        $purse = new Purse;
+        $purse->name = $data['name'];
+        $purse->money = $new;
+        $purse->user_id = Auth::id();
         $purse->save();
-    	return $purse;
+        return $purse;
     }
 
     public function user()

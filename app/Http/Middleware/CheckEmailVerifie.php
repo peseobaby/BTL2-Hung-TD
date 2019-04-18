@@ -15,7 +15,7 @@ class CheckEmailVerifie
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user->email_verified_at != null) {
+        if(Auth::user()->email_verified_at != null) {
             return $next($request);
         } else {
             

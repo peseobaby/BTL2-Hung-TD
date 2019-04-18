@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -9,6 +10,7 @@
                 <div class="card-body">
                     <div class="head">
                         <h1>Sửa thông tin danh mục {{ $category->name }}</h1>
+                        <a href="{{ route('category.show', Auth::id()) }}" class ="button" >Trở về</a> <br/> <br/>
                     </div>
                     <div class="content">
                         <form method="post" action="{{ route('category.update', $category->id) }}" role="form">
@@ -18,9 +20,9 @@
                                 <tr>
                                     <td>Tên danh mục <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="text" name="name" value="{{ $category->name }}" class="form-control" placeholder="tên nhân viên">
+                                        <input type="text" name="name" value="{{ $category->name }}" class="form-control" placeholder="Tên nhân viên">
                                         @if($errors->has('name'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('name') }}
                                         @endif
                                     </td>
@@ -29,8 +31,13 @@
                                     <td>Công việc </td>
                                     <td>
                                         <select name="parent">
-                                            <option value="Thu">Thu</option>
-                                            <option value="Chi">Chi</option>
+                                            @if($category->parent_id == 2)
+                                                <option value="Thu">Thu</option>
+                                                <option value="Chi" selected = "selected">Chi</option>
+                                            @else 
+                                                <option value="Thu">Thu</option>
+                                                <option value="Chi">Chi</option>
+                                            @endif
                                         </select>
                                     </td>
                                 </tr>

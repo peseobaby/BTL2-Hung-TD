@@ -11,8 +11,8 @@ class CategoryController extends Controller
 {
     public function show($id)
     {
-    	$categories = Category::where('user_id', $id)->orderBy('parent_id')->get();
-    	return view('category/show_category', compact('categories'));
+        $categories = Category::where('user_id', $id)->orderBy('parent_id')->get();
+        return view('category/show_category', compact('categories'));
     }
 
      public function showReceipt($id)
@@ -29,12 +29,11 @@ class CategoryController extends Controller
 
     public function createCategory()
     {
-    	return view('category/create_category');
+        return view('category/create_category');
     }
-    public function store(CategoryRequest $request, $id)
+    public function storeCategory(CategoryRequest $request)
     {
-    	date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $pcategory = Category::store($request->all());
+        $category = Category::store($request->all());
         $id = Auth::id();
         return redirect()->route('category.show',['id' => $id])->with('alert', 'Tạo danh mục thành công');
     }

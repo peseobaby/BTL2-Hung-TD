@@ -22,9 +22,9 @@
                                 <tr>
                                     <td>Tên ví <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="text" name="name" class="form-control" placeholder="tên ví">
+                                        <input type="text" name="name" class="form-control" placeholder="Tên ví">
                                         @if($errors->has('name'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('name') }}
                                         @endif
                                     </td>

@@ -18,7 +18,7 @@
                                 <tr>
                                     <td>Tên ví <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="text" name="name" value="{{ $purse->name }}" class="form-control" placeholder="tên nhân viên">
+                                        <input type="text" name="name" value="{{ $purse->name }}" class="form-control" placeholder="Tên nhân viên">
                                         @if($errors->has('name'))
                                             <li style="color: red">
                                             {{ $errors->first('name') }}

@@ -14,7 +14,7 @@ class CreateTradesTable extends Migration
     public function up()
     {
         Schema::create('trades', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->increments('id');
             $table->string('from');
             $table->string('to');
             $table->integer('money');

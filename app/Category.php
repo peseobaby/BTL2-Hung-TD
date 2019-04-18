@@ -12,19 +12,19 @@ class Category extends Model
     ];
 
     public static function store($data)
-    {	
-    	$categoryParent = Category::where('name', $data['parent'])->first();
-    	$category = new Category;
-    	$category->name = $data['name'];
-    	$category->parent_id = $categoryParent->id;
-    	$category->user_id = Auth::id();
+    {
+        $categoryParent = Category::where('name', $data['parent'])->first();
+        $category = new Category;
+        $category->name = $data['name'];
+        $category->parent_id = $categoryParent->id;
+        $category->user_id = Auth::id();
         $category->save();
-    	return $category;
+        return $category;
     }
 
      public static function updateCategory($data, $id)
-    {	
-    	$parentId = Category::where('name', $data['parent'])->first();
+    {
+        $parentId = Category::where('name', $data['parent'])->first();
         $category = Category::find($id);
         $category->name = $data['name'];
         $category->parent_id = $parentId->id;

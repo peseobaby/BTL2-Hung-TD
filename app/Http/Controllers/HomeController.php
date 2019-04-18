@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateInforRequest;
 use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Http\Request;
@@ -52,11 +53,16 @@ class HomeController extends Controller
 
     public function changePassword(ChangePasswordRequest $request, $id)
     {   
+
         $user = new User;
         $data = $request->all();
         $userid = $user->find($id);
-        $userid->password = bcrypt($data['password']);
-        $userid->save();
-        return redirect()->route('home', ['user' => $userid])->with('alert', 'Đổi mật khẩu thành công');
+        if(Hash::check($data['oldpassword'], $userid->password)) {
+            $userid->password = bcrypt($data['password']);
+            $userid->save();
+            return redirect()->route('home', ['user' => $userid])->with('alert', 'Đổi mật khẩu thành công');
+        } else {
+            return redirect()->route('changepassword', $id)->with('alert', 'Mật khẩu cũ không đúng');
+        }
     }
 }

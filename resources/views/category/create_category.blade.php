@@ -14,15 +14,15 @@
                     <div class="content">
                         <h1>Quản lý thu chi</h1>
                         <a href="{{ route('category.show', Auth::id()) }}" class ="button" >Trở về</a> <br/> <br/>
-                        <form method="post" action="{{ route('category.show', Auth::id()) }}" role="form">
+                        <form method="post" action="{{ route('category.store') }}" role="form">
                              {{ csrf_field() }}
                             <table width="50%" cellspacing="0" cellpadding="10">
                                 <tr>
                                     <td>Tên danh mục <span class="errors" style="color: red" >*</span></a></td>
                                     <td>
-                                        <input type="text" name="name" class="form-control" placeholder="tên danh mục">
+                                        <input type="text" name="name" class="form-control" placeholder="Tên danh mục">
                                      @if($errors->has('name'))
-                                        <li style="color: red">
+                                        <span style="color: red">
                                         {{ $errors->first('name') }}
                                     @endif
                                     </td>

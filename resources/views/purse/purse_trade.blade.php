@@ -28,7 +28,7 @@
                                     <td>
                                         <input type="number" name="id" class="form-control" placeholder="Tài khoản cần chuyển">
                                         @if($errors->has('id'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('id') }}
                                         @endif
                                     </td>
@@ -38,7 +38,7 @@
                                     <td>
                                         <input type="text" name="name" class="form-control" placeholder="Tên chủ tài khoản">
                                         @if($errors->has('name'))
-                                             <li style="color: red">
+                                             <span style="color: red">
                                             {{ $errors->first('name') }}
                                         @endif
                                     </td>
@@ -48,7 +48,7 @@
                                     <td>
                                         <input type="number" name="money"  class="form-control" placeholder="Số tiền cần chuyển">
                                         @if($errors->has('money'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('money') }}
                                         @endif
                                     </td>
@@ -66,9 +66,9 @@
                                 <tr>
                                     <td>Mật khẩu cá nhân <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="password" name="password"  class="form-control" placeholder="mật khẩu">
+                                        <input type="password" name="password"  class="form-control" placeholder="Mật khẩu">
                                         @if($errors->has('password'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('password') }}
                                         @endif
                                     </td>
@@ -76,9 +76,9 @@
                                  <tr>
                                     <td>Xác thực mật khẩu cá nhân <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="password" name="password_confirmation"  class="form-control" placeholder="xác thực mật khẩu">
+                                        <input type="password" name="password_confirmation"  class="form-control" placeholder="Xác thực mật khẩu">
                                         @if($errors->has('password_confirmation'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('password_confirmation') }}
                                         @endif
                                     </td>

@@ -37,7 +37,7 @@
                                         <td>{{ $trade->money }}</td>
                                         <td>{{ $trade->updated_at }}</td>
                                         <td>
-                                            <form action="{{ asset('') }}deletetrade/{{ $trade->id }}" method="post" 
+                                            <form action="{{ route('trade.destroy', $trade->id) }}" method="post" 
                                             onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}

@@ -14,7 +14,7 @@ class CreatePursesTable extends Migration
     public function up()
     {
         Schema::create('purses', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
             $table->integer('money')->default(10000);

@@ -35,7 +35,7 @@
                                     <td>
                                         <a href="{{ route('category.edit', $category->id) }}"><button class="edit">Sửa
                                         </button></a>
-                                        <form action="{{ asset('') }}deletecategory/{{ $category->id }}" method="post" 
+                                        <form action="{{ route('category.destroy', $category->id) }}" method="post" 
                                         onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
@@ -52,6 +52,7 @@
     </div>
 </div>
 @endsection
+@section('css')
 <style>
     #menu ul {
   background: #1F568B;
@@ -76,3 +77,4 @@
   color: #333;
 }
 </style>
+@endsection

@@ -24,6 +24,7 @@ class ChangePasswordRequest extends FormRequest
     public function rules()
     {
         return [
+            'oldpassword' => 'required',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
         ];
@@ -31,8 +32,9 @@ class ChangePasswordRequest extends FormRequest
     public function messages()
     {
         return [
+            'oldpassword.required' => 'Nhập lại mật khẩu cũ',
             'password.required' => 'Yêu cầu nhập mật khẩu',
-            'password_confirmation.required' => 'mật khẩu xác thực không đúng',
+            'password_confirmation.required' => 'Mật khẩu xác thực không đúng',
             'password_confirmation.same' => 'Mật khẩu xác thực không đúng',
         ];
     }

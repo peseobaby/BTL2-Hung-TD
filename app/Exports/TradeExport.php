@@ -17,8 +17,8 @@ class TradeExport implements FromCollection, WithMapping, WithHeadings
     * @return \Illuminate\Support\Collection
     */
     public function collection()
-    {	
-    	$user = Auth::user()->id;
+    {   
+        $user = Auth::user()->id;
         $purse = Purse::where('user_id', $user)->first();
         return Trade::with('category','purse')->where('from', $purse->id)->where('category_id', 1)
         ->whereDate('created_at', '>', Carbon::now()->day - 30)->get();    

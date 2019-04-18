@@ -18,9 +18,9 @@
                                 <tr>
                                     <td>Tên người dùng <span class="errors" style="color: red" >*</span></td>
                                     <td>
-                                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="tên nhân viên">
+                                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="Tên nhân viên">
                                         @if($errors->has('name'))
-                                            <li style="color: red">
+                                            <span style="color: red">
                                             {{ $errors->first('name') }}
                                         @endif
                                     </td>
@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>Địa chỉ</td>
                                     <td>
-                                        <input type="text" name="address" value="{{ $user->address }}" class="form-control" placeholder="địa chỉ">
+                                        <input type="text" name="address" value="{{ $user->address }}" class="form-control" placeholder="Địa chỉ">
                                     </td>
                                 </tr>
                                 <tr>

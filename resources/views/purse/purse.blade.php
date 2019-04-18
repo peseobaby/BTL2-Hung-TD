@@ -35,7 +35,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <form action="{{ asset('') }}deletepurse/{{ $purse->id }}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                            <form action="{{ route('purse.destroy', $purse->id) }}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
                                                 <button type="submit" class="delete">Xóa</button>
@@ -54,6 +54,7 @@
                                         <a href="{{ route('purse.create') }}"><button class="create">Tạo ví</button></a>
                                     </td>
                                 </tr>
+                            </table>
                         @endif 
                     </div>
                 </div>
